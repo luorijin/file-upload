@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simple camera demo</title>
+	<meta charset="utf-8">
+	<meta name="MobileOptimized" content="240" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        background-color: #EFEFF4;
+        font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+    }
+    html{
+        font-size: 20px;
+    }
+    ul,li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+
+
+	.form-row {
+	    line-height: 2.25rem;
+	    border-bottom: 1px solid #E7E7EA;
+	    border-top: 1px solid #E7E7EA;
+	    font-size: .7rem;
+	    color: #999999;
+	    background-color: #FFFFFF;
+	    padding: 0 .45rem;
+	    position: relative;
+	    margin: -1px 0 0 0;
+	    box-sizing: border-box;
+	}
+
+	.form-row.imgType {
+	    line-height: 4.3rem;
+	    height: 4.4rem;
+	}
+
+	.form-row.imgType .r-block {
+	    top: -1px;
+	}
+
+	.form-row.multiUpload {
+	    border-bottom: 0 none;
+	    line-height: 2rem;
+	    height: 1.6rem;
+	}
+
+	.form-row.multiUpload .camera-btn {
+	    display: none;
+	}
+
+	.form-row .r-block {
+	    position: absolute;
+	    height: 100%;
+	    right: .45rem;
+	    top: 0;
+	}
+
+	.form-row .r-block .triangle {
+	    border: 6px solid transparent;
+	    border-top-color: #999999;
+	    border-bottom-width: 0;
+	    display: inline-block;
+	}
+
+	.form-row .r-block .triangle:before {
+	    content: '';
+	    display: block;
+	    border: 6px solid transparent;
+	    border-top-color: #FFFFFF;
+	    border-bottom-width: 0;
+	    position: absolute;
+	    bottom: 1px;
+	    left: -6px;
+	}
+
+	.form-row .r-block .triangle.right {
+	    -webkit-transform: translateY(-2px) rotate(-90deg);
+	}
+
+    </style>
+</head>
+<body>
+	<div class="form-row imgType" id="multiUpload">
+        <span>图片</span>
+        <div class="r-block">
+            <a id="upload" href="javascript:void(0);" class="camera-btn"></a>
+            <input id="uploader_control" type="file" accept="image/*" capture="camera" class="upload-transparent-input"/>
+        </div>
+    </div>
+    <div class="upload-wrapper" id="uploader_content" style="display:none;">
+        <div class="up-btn anotherUploadBtn" id="anotherUploadBtn">
+            <a href="javascript:void(0);" class="camera-btn"></a>
+        </div>
+    </div>
+    <br>
+
+    <div class="form-row" id="submitBtn"><span>提交</span></div>
+    <div class="form-row" id="btn1"><span>点我</span></div>
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../build/camera.js"></script>
+    <script>
+    $(function(){
+    	var experienceGlobal = {
+    		Photos: []
+	    };
+	    var cameraObj = camera({
+	        uploadBtnId: 'upload,anotherUploadBtn',
+	        belongedDataId: '', // 图片的数据拥有者Id，新建数据为‘’，编辑数据为该数据的id
+	        maxFileCount: 9, // 上传文件个数限制
+	        item: experienceGlobal, // 存放Photos数组的对象
+	        submitBtnId: 'submitBtn', // 页面提交按钮，用于验证逻辑
+			uploadUrl: 'http://192.168.100.30:8080/web/base/eap-apps/html5/App/UploadCut'
+	    });
+
+	    $('#btn1').click(function(event) {
+	    	console.log(experienceGlobal.Photos);
+	    });
+
+	    $('#submitBtn').click(function(event) {
+	    	if ($(this).hasClass('isUploading')) {
+	    		console.log('图片上传中');
+	    		return;
+	    	}
+
+	    	alert('submit');
+	    });;
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+.camera-btn{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    background: url('./image/cameraBtn.png') center no-repeat;
+    background-size: contain;
+    
+}
+
+.upload-transparent-input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.upload-wrapper{
+    padding: 8px;
+    background-color: #FFFFFF;
+}
+.upload-wrapper:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.upload-wrapper .up-btn,
+.upload-wrapper .up-item
+{
+    width: 64px;
+    height: 64px;
+    float: left;
+    margin: 6px;
+}
+.upload-wrapper .up-item{
+    position: relative;
+}
+.upload-wrapper .up-progress-mask{
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 64px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 12px;
+    display: none;
+}
+.upload-wrapper .up-progress-mask.on{
+    display: block;
+}
+
+.upload-wrapper img{
+    width: 64px;
+    height: 64px;
+    vertical-align: middle;
+}
+.upload-wrapper .up-del{
+    position: absolute;
+    z-index: 777;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #F97642; 
+    line-height:87%;
+    overflow:hidden;
+    text-align: center;
+    top: -8px;
+    right: -8px;
+    font-size:20px;
+}
+
+/*单个图片模式*/
+.upload-wrapper.single{
+    padding: 0;
+    background-color: transparent;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.upload-wrapper.single .up-item{
+    margin: 0;
+}
+.upload-wrapper.single .up-img-holder{
+    height: 64px;
+}
+.upload-wrapper.single img{
+    vertical-align: baseline;
+}
+
+
+
+
+/* ============================================================
+    拍照样式
+ ============================================================ */
+
+
+.upload-pic-holder {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    float:left;
+    margin: 0.1125rem;
+}
+
+.upload-pic-main {
+    height: 100%;
+    position: relative;
+}
+
+ .upload-pic-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    background: rgba(0,0,0,0.6);
+    z-index: 777;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    // line-height: 70px;
+}
+
+ .upload-pic-mask .upload-pic-progresswrap {
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+}
+
+ .upload-pic-mask .upload-pic-progresswrap .upload-pic-info {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+ .pic-item-holder{
+    width:100%;
+    height:100%;
+}
+
+ .upload-pic-main .pic-item-holder img {
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    max-height: 100%;
+    background-size:cover;
+    background-position: center center;
+    display:none;
+}
+
+ .upload-pic-main .upload-pic-delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 888;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    background-color:#b0ac9d;
+    background-size:contain;    
+}
+
+.upload-pic-info{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/* 上传图片按钮+&文字配置 */
+.upload-word {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-size: contain;
+    border:1px solid #dbdee1;
+}
+
+.line-1{
+    width:41%;
+    height:0.1rem;
+    background-color:#aab4bd;
+    position:absolute;
+    left:50%;
+    top:36%;
+    transform:translate3d(-50%,-50%,0);
+
+}
+
+.line-2{
+    width:41%;
+    height:0.1rem;
+    background-color:#aab4bd;
+    position:absolute;
+    top:36%;
+    left:50%;
+    transform:translate3d(-50%,-50%,0) rotate(90deg);
+}
+
+.line-word{
+    color:#aab4bd;
+    position:absolute;
+    top:75%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+}
+
+.upBox{
+    position:relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    height:100%;
+}
+
+.line1 .line-word{
+    font-size:2rem;
+}
+
+.line2 .line-word{
+    font-size:1rem;
+}
+
+.line3 .line-word{
+    font-size:.6rem;
+}
+
+.line4 .line-word{
+    font-size:.6rem;
+}
+
+.line5 .line-word{
+    font-size:.4rem;
+}
+
+.line6 .line-word{
+    font-size:.4rem;
+}
+
+/* 单+号 */
+
+.singlePlus .line-1{
+    width:41%;
+    height:0.2rem;
+    background-color:#aab4bd;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate3d(-50%,-50%,0);
+
+}
+
+.singlePlus .line-2{
+    width:41%;
+    height:0.2rem;
+    background-color:#aab4bd;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate3d(-50%,-50%,0) rotate(90deg);
+}
